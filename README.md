@@ -10,13 +10,9 @@
 
 For Execute This Code Need Python Version `3.10` Or Newer .
 
-
-
 **Run In Older Version**
 
 If Want Run In Older Python Version Must Be Change `match`  statement `(line 116)` to `if` statement in `status` function `(line 93)` and Good To Go .
-
-
 
 **Run Game**
 
@@ -28,11 +24,43 @@ This Line Run Game
 python main.py
 ```
 
+After Hit Enter Game Is Runiing & Wait For First Guess
+
+```shell
+LEVEL < 1 >
+LVL <1> - CHAR [5]
+GUESS [6]/[6] />: 
+```
+
 Change Some Options
 
 ```shell
 python main.py --length 6 --guess 10
 ```
+
+And This Changed
+
+```shell
+LEVEL < 1 >
+LVL <1> - CHAR [6]
+GUESS [10]/[10] />: 
+```
+
+
+
+See Run Options
+
+**Exit**
+
+For Exit Any Time From Game Need Only  type `exit` in Input 
+
+```shell
+LEVEL < 1 >
+LVL <1> - CHAR [5]
+GUESS [6]/[6] />: exit
+```
+
+After Exiting Or Game Over Game Create or Overwrite `detail.json` or path Define 
 
 See Run Options
 
@@ -42,7 +70,7 @@ See Run Options
 
 #### Detail:
 
-Detail File Created With Json Pattern .
+Detail File Created With Json Pattern . `detail.json`
 
 `KEY` is Level Target
 
@@ -53,8 +81,6 @@ Detail File Created With Json Pattern .
 > > `guesses :` *Guess Counter* - `int`
 > > 
 > > `record :` *Record All Guesses With State Analyze* - `dict`
-
-
 
 > **Record Mean** 
 > 
