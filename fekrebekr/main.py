@@ -17,9 +17,14 @@ from typing import Final, Literal
 
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\^////////////////////////////// #
 
+"""
+Game FekreBekr - Console Guessing Game
+Have Fun :)
+"""
+
 # CONST
 _NAME: Final = 'Fekre Bekr'
-_VERSION: Final = '0.1'
+_VERSION: Final = '0.2'
 _DESCRIPTION: Final = 'Some Gussing Game !!'
 
 # TYPE ALIASES
@@ -49,27 +54,34 @@ def state(target: str, guess: str) -> T_STATE:
     # Define State List - Result
     _state = []
 
-    # Convert Dictionary `Key`: `Value` - Key is Index of Value
+    # Target & Guess Convert To Dictionary `Key`: `Value` - Key is Sit Value Position `index`
+    # Map Target, Map Guess
     mp_tt, mp_gs = {i:c for i, c in enumerate(target)}, {i:c for i, c in enumerate(guess)}
 
-    # State Loop - Condition [while stk_tt]: Loop Runing Until Target Stack Be Empty
+    # Index Check Value
     idx = 0
+
+    # State Loop - Condition [while mp_gs]: Loop Runing Until Guess Dict is Empty
     while mp_gs:
 
         # [True Value & True Index] - True & True Sit
         if mp_gs[idx] == mp_tt.get(idx, False):
             _state.append(1)
+            # Remove Value From Both Dict
             del mp_gs[idx], mp_tt[idx]
 
         # [True Value & False Index] - True & False Sit
         elif mp_gs[idx] in mp_tt.values():
             _state.append(2)
+            # Find Key For Removing Value
             get_key = [k for k, v in mp_tt.items() if v == mp_gs[idx]]
+            # Remove Value From Both Dict
             del mp_gs[idx], mp_tt[get_key[0]]
 
         # [False Value]
         else:
             _state.append(0)
+            # Remove Value From Guess Dict
             del mp_gs[idx]
 
         # Next Character - Update Key
